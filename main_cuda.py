@@ -69,7 +69,8 @@ env = Env(args.batch_size, 64, 48, args.grad_decay, device,
 if args.no_odom:
     model = Model(7, 6, in_channels=3 if args.use_optical_flow else 1)
 else:
-    model = XceptionModel(7+3, 6, in_channels=3 if args.use_optical_flow else 1)
+    # model = XceptionModel(7+3, 6, in_channels=3 if args.use_optical_flow else 1)
+    model = Model(7+3, 6, in_channels=3 if args.use_optical_flow else 1)
 model = model.to(device)
 os.makedirs(args.ckpt_dir, exist_ok=False)
 
