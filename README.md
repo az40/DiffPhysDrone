@@ -43,7 +43,7 @@ conda activate drone
 
 # Install dependencies
 pip install torch==2.8.0 torchvision==0.23.0
-# OpenCV cannot be updgraded beyond this version because NumPy cannot be upgraded to 2.0 or greater (there is a dependency conflict).
+# OpenCV cannot be upgraded beyond this version because NumPy cannot be upgraded to 2.0 or greater (there is a dependency conflict).
 pip install opencv-python==4.10.0.82 numpy==1.26.4
 pip install tqdm tensorboard
 ```
@@ -69,7 +69,10 @@ python main_cuda.py $(cat configs/single_agent.args)
 
 multi_agent.args is unchanged from the original repo. single_agent.args includes all of the arguments from the original repo as well as a few extra ones, namely `--use_depth_ratio` to change the input from absolute depth to log(depth at t / depth at t-1) and `--ckpt_dir` to specify where to store model checkpoints (which occur by default every 10k iterations).
 
-The training script will create a tensorboard folder under the folder runs/. I recommend moving the folder containing the model files into the respective tensorboard folder afterwards to keep them together.
+The training script will create a tensorboard folder under the folder `runs/`. I recommend moving the folder containing the model files into the respective tensorboard folder afterwards to keep them together.
+
+## Models
+Not much work or experimentation has been done with trying different models. Currently there are two models available: the original model in `model.py` and a larger model based on a modified Xception architecture in `xception_model.py`. The training script and validation code import the original model from `model.py` by default; to change this you can edit the code.
 
 ## Evaluation
 You need to download the simulation validation code from the [GitHub release page](https://github.com/az40/DiffPhysDrone/releases).
@@ -85,7 +88,7 @@ Then, run the following command to evaluate the trained model:
 python eval.py --resume <path to checkpoint> --target_speed 2.5
 ```
 
-For evaluation/testing of the single-agent settings and models, see the validation_code/high_speed_flight/ readme after downloading it from the [GitHub release page](https://github.com/az40/DiffPhysDrone/releases). Put the folder in this directory so that the relative path to it is DiffPhysDrone/validation_code/
+For evaluation/testing of the single-agent settings and models, see the `validation_code/high_speed_flight/` readme after downloading it from the [GitHub release page](https://github.com/az40/DiffPhysDrone/releases). Put the folder in this directory so that the relative path to it is `DiffPhysDrone/validation_code/`
 
 ## Citation
 If using this repository, please cite our work
