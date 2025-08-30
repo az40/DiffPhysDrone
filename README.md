@@ -75,7 +75,7 @@ The training script will create a tensorboard folder under the folder `runs/`. I
 Not much work or experimentation has been done with trying different models. Currently there are two models available: the original model in `model.py` and a larger model based on a modified Xception architecture in `xception_model.py`. The training script and validation code import the original model from `model.py` by default; to change this you can edit the code.
 
 ## Evaluation
-You need to download the simulation validation code from the [GitHub release page](https://github.com/az40/DiffPhysDrone/releases).
+You need to download the simulation validation code from [here](https://drive.google.com/drive/folders/1uSgZQ3kp_EtijLHpmusu1n7NojZYbFMA?usp=sharing).
 
 To evaluate the trained model in multi-agent settings, use the following command to launch the simulator (note this is only for multi-agent swarms):
 ```bash
@@ -88,7 +88,7 @@ Then, run the following command to evaluate the trained model:
 python eval.py --resume <path to checkpoint> --target_speed 2.5
 ```
 
-For evaluation/testing of the single-agent settings and models, see the `validation_code/high_speed_flight/` readme after downloading it from the [GitHub release page](https://github.com/az40/DiffPhysDrone/releases). Put the folder in this directory so that the relative path to it is `DiffPhysDrone/validation_code/`
+For evaluation/testing of the single-agent settings and models, see the `validation_code/high_speed_flight/` readme after downloading and unzipping it from [here](https://drive.google.com/drive/folders/1uSgZQ3kp_EtijLHpmusu1n7NojZYbFMA?usp=sharing). Put the folder in this directory so that the relative path to it is `DiffPhysDrone/validation_code/`
 
 ## Citation
 If using this repository, please cite our work
